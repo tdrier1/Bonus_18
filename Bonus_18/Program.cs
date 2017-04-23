@@ -10,21 +10,21 @@ namespace Bonus_18
     {
         static void Main(string[] args)
         {
-            bool run = true;
-            Car CarInv = new Car();
-            List<List<string>> carList = new List<List<string>>();
+            bool run = true;//bool value for do while loop in program
+            Car CarInv = new Car();//creating a new object in main method using the Car class
+            List<List<string>> carList = new List<List<string>>();//creating a 2d list to store car data
             do
             {
                 Console.WriteLine("Welcome to the Grand Circus Motors Admin Console!");
                 Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++++");
                 Console.Write("\nHow many cars do you want to enter? ");
-                int input = GetInt();
+                int input = GetInt();//user inputs how many cars will be stored in database
 
-                CarInfo(input, CarInv, carList);
+                CarInfo(input, CarInv, carList);//method used to prompted user to enter data and pass it to appropiate areas
 
-                PrintInv(carList);
+                PrintInv(carList);//method used to give data list back to user and console print
 
-                run = Continue();
+                run = Continue();//method prompting user if they would like to add more cars
 
             } while (run == true);
         }
@@ -42,17 +42,17 @@ namespace Bonus_18
 
             }
             return value;
-        }
+        }//validation to ensure an integer is entered
 
         public static void CarInfo(int input, Car CarInv, List<List<string>> carList)
         {
-            for (int i = 1; i <= input; i++)
+            for (int i = 1; i <= input; i++)//for loop used to enter data for each car
             {
-                List<string> sublist = new List<string>();
+                List<string> sublist = new List<string>();//sublist used when printing data in rows
 
                 Console.Write("\nMake of Car #{0}: ", i);
-                CarInv.makeProp = Console.ReadLine();
-                sublist.Add(CarInv.makeProp);
+                CarInv.makeProp = Console.ReadLine();//this passes the data over to the Car class and assigns it to one of the members in the car class
+                sublist.Add(CarInv.makeProp);//adds data to the sublist
 
                 Console.Write("\nModel of Car #{0}: ", i);
                 CarInv.modelProp = Console.ReadLine();
@@ -66,7 +66,7 @@ namespace Bonus_18
                 CarInv.priceProp = GetDblWithinRange();
                 sublist.Add(CarInv.priceProp.ToString());
 
-                carList.Add(sublist);
+                carList.Add(sublist);//adds sublist to main list decalred in the main method
             }
 
                 Console.Clear();
@@ -94,7 +94,7 @@ namespace Bonus_18
                 }
             } 
          return value;
-        }
+        }//validation used to make sure an app. year is entered
 
         public static double GetDblWithinRange()
         {
@@ -120,14 +120,14 @@ namespace Bonus_18
                 }
             }
             return value;
-        }
+        }//validation used to ensure an app. dollar amount is entered
 
         public static void PrintInv(List<List<string>> carList)
         {
             Console.WriteLine("\nCurrent Inventory:");
             Console.WriteLine("--------------------");
 
-            for (int f = 0; f < carList.Count; f++)
+            for (int f = 0; f < carList.Count; f++)//two for loops used to move throughout the list and print values
             {
                 Console.WriteLine("\n");
 
@@ -135,13 +135,13 @@ namespace Bonus_18
                 {
                     if(p == 3)
                     {
-                        var convertDecimal = Convert.ToDecimal(carList[f][p]);
-                        string moneyValue = String.Format("{0:C}", convertDecimal);
-                        Console.Write(moneyValue + "\t\t");
+                        var convertDecimal = Convert.ToDecimal(carList[f][p]);//converts double input value to decimal
+                        string moneyValue = String.Format("{0:C}", convertDecimal);//this is then converted into a string for formatting
+                        Console.Write(moneyValue + "\t\t");//value then printed with currency formatting
                     }
                     else
                     {
-                        Console.Write(carList[f][p] + "\t\t");
+                        Console.Write(carList[f][p] + "\t\t");//everything else is printed as normal
                     }
                     
                 }
@@ -149,7 +149,7 @@ namespace Bonus_18
             Console.WriteLine("\n");
         }
 
-        public static bool Continue()
+        public static bool Continue()//standard method used to continue program
         {
             string conf;
             bool check = true;

@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 namespace Bonus_18
 {
-    class CarClass
+    class Car
     {
         private string make;
         private string model;
         private int year;
         private double price;
-    
-        public CarClass()
+
+        public string makeProp{ set { make = value; } get { return make; } }
+        public string modelProp{ set { model = value; } get { return model; } }
+        public int yearProp{ set { year = value; } get { return year; } }
+        public double priceProp{ set { price = value; } get { return price; } }
+
+        public Car()
         {
             make = "N/A";
             model = "N/A";
@@ -21,57 +26,12 @@ namespace Bonus_18
             price = 0;
         }
 
-        public CarClass(string makeinput, string modelinput, int yearinput, double priceinput)
+        public Car(string makeinput, string modelinput, int yearinput, double priceinput)
         {
             make = makeinput;
             model = modelinput;
             year = yearinput;
             price = priceinput;
-        }
-
-        public string makeProp
-        {
-            set
-            {
-                make = value;
-            }
-            get
-            {
-                return make;
-            }
-        }
-        public string modelProp
-        {
-            set
-            {
-                model = value;
-            }
-            get
-            {
-                return model;
-            }
-        }
-        public int yearProp
-        {
-            set
-            {
-                year = value;
-            }
-            get
-            {
-                return year;
-            }
-        }
-        public double priceProp
-        {
-            set
-            {
-                price = value;
-            }
-            get
-            {
-                return price;
-            }
         }
     }
 }

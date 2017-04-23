@@ -10,45 +10,50 @@ namespace Bonus_18
     {
         static void Main(string[] args)
         {
+            Car CarInv = new Car();
+            List<List<string>> carList = new List<List<string>>();
 
-            CarClass Cars = new CarClass();
-            List<string> makelist = new List<string>();
-            List<string> modellist = new List<string>();
-            List<string> yearlist = new List<string>();
-            List<string> pricelist = new List<string>();
 
             Console.WriteLine("Welcome to the Grand Circus Motors Admin Console!");
             Console.Write("\nHow many cars do you want to enter? ");
             int input = Convert.ToInt32(Console.ReadLine());
 
-            for(int i = 1; i<=input; i++)
+            for (int i = 1; i <= input; i++)
             {
-                Console.Write("\nMake: ");
-                Cars.makeProp = Console.ReadLine();
-                makelist.Add(Cars.makeProp);
+                List<string> sublist = new List<string>();
+                Console.Write("\nMake of Car #{0}: ", i);
+                CarInv.makeProp = Console.ReadLine();
+                sublist.Add(CarInv.makeProp);
 
-                Console.Write("\nModel: ");
-                Cars.makeProp = Console.ReadLine();
-                modellist.Add(Cars.makeProp);
+                Console.Write("\nModel of Car #{0}: ", i);
+                CarInv.modelProp = Console.ReadLine();
+                sublist.Add(CarInv.modelProp);
 
-                Console.Write("\nYear: ");
-                Cars.makeProp = Convert.ToString(Console.ReadLine());
-                yearlist.Add(Cars.makeProp);
+                Console.Write("\nYear of Car #{0}: ", i);
+                CarInv.yearProp = Convert.ToInt32(Console.ReadLine());
+                sublist.Add(CarInv.yearProp.ToString());
 
-                Console.Write("\nPrice: ");
-                Cars.makeProp = Convert.ToString(Console.ReadLine());
-                pricelist.Add(Cars.makeProp);
+                Console.Write("\nPrice of Car#{0}: ", i);
+                CarInv.priceProp = Convert.ToInt32(Console.ReadLine());
+                sublist.Add(CarInv.priceProp.ToString());
 
+                carList.Add(sublist);
             }
 
             Console.WriteLine("\nCurrent Inventory:");
+            Console.WriteLine("--------------------");
 
-            for (int f=0; f<makelist.Count; f++)
+            for (int f = 0; f < carList.Count; f++)
             {
-                Console.WriteLine("\n"+ makelist[f] + "\t" + modellist[f] + "\t" + yearlist[f] + "\t" + pricelist[f]);
-            }
-            
+                Console.WriteLine("\n");
 
+                for (int p = 0; p <= 3; p++)
+                {
+                    Console.Write(carList[f][p]+ "\t\t");
+                }
+            }
+            Console.WriteLine("\n");
         }
     }
 }
+
